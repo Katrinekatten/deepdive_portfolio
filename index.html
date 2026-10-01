@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>my photography portfolio</title>
+
+    <!-- GOOGLE FONT -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* =========================
+           RESET
+        ========================= */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: #ffffff;
+        color: #111111;
+
+        font-family: "Oswald", sans-serif;
+
+        font-weight: 400;
+      }
+
+      /* =========================
+           HEADER
+        ========================= */
+
+      header {
+        min-height: 100vh;
+
+        padding: 25px 30px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        font-size: 14px;
+
+        letter-spacing: 1px;
+      }
+
+      .nav a {
+        color: #111111;
+
+        text-decoration: none;
+      }
+      h2 {
+        font-family: "Oswald", sans-serif;
+        font-weight: 400;
+        margin-bottom: 50px;
+        justify-content: center;
+      }
+
+      /* =========================
+           HERO
+        ========================= */
+
+      .hero {
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: flex-end;
+
+        gap: 40px;
+      }
+
+      .hero h1 {
+        font-size: clamp(80px, 17vw, 240px);
+
+        line-height: 1;
+
+        font-weight: 300;
+
+        letter-spacing: -6px;
+      }
+
+      .hero-info {
+        width: 220px;
+
+        font-size: 14px;
+
+        line-height: 1.3;
+
+        letter-spacing: 1px;
+      }
+
+      .scroll {
+        font-size: 12px;
+
+        text-transform: uppercase;
+
+        letter-spacing: 1px;
+      }
+
+      /* =========================
+           GALLERY
+        ========================= */
+
+      .gallery {
+        width: 100%;
+
+        padding: 120px 30px 200px;
+      }
+
+      /* =========================
+           SINGLE PHOTO
+        ========================= */
+
+      .single {
+        width: 45%;
+
+        max-width: 650px;
+
+        margin-left: 8%;
+
+        margin-bottom: 220px;
+      }
+
+      .single.right {
+        margin-left: auto;
+
+        margin-right: 8%;
+      }
+
+      .single img {
+        width: 100%;
+
+        height: auto;
+
+        display: block;
+      }
+
+      /* =========================
+           TWO PHOTOS BESIDE EACH OTHER
+        ========================= */
+
+      .double {
+        width: 100%;
+
+        max-width: 1100px;
+
+        margin: 0 auto 220px;
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 25px;
+
+        align-items: start;
+      }
+
+      .double img {
+        width: 100%;
+
+        height: auto;
+
+        display: block;
+      }
+
+      /* =========================
+           DOUBLE PHOTO WITH OFFSET
+        ========================= */
+
+      .double.offset {
+        align-items: start;
+      }
+
+      .double.offset .photo:nth-child(2) {
+        margin-top: 120px;
+      }
+
+      /* =========================
+           LARGE PHOTO
+        ========================= */
+
+      .large {
+        width: 75%;
+
+        max-width: 1100px;
+
+        margin: 0 auto 250px;
+      }
+
+      .large img {
+        width: 100%;
+
+        height: auto;
+
+        display: block;
+      }
+
+      /* =========================
+           CAPTIONS
+        ========================= */
+
+      .caption {
+        display: flex;
+
+        justify-content: space-between;
+
+        margin-top: 12px;
+
+        font-size: 12px;
+
+        text-transform: uppercase;
+
+        letter-spacing: 1px;
+      }
+
+      /* =========================
+           ABOUT
+        ========================= */
+
+      .about {
+        min-height: 100vh;
+
+        padding: 30px;
+
+        display: flex;
+
+        align-items: center;
+      }
+
+      .about-inner {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 50px;
+      }
+
+      .about-title {
+        font-size: clamp(70px, 12vw, 180px);
+
+        line-height: 0.75;
+
+        font-weight: 300;
+
+        text-transform: uppercase;
+
+        letter-spacing: -6px;
+      }
+
+      .about-text {
+        max-width: 450px;
+
+        align-self: end;
+
+        font-size: 22px;
+
+        line-height: 1.25;
+      }
+
+      /* =========================
+           MOBILE
+        ========================= */
+
+      @media (max-width: 700px) {
+        header {
+          padding: 20px;
+        }
+
+        .hero {
+          display: block;
+        }
+
+        .hero h1 {
+          font-size: 25vw;
+
+          letter-spacing: -3px;
+
+          margin-bottom: 35px;
+        }
+
+        .hero-info {
+          width: 250px;
+        }
+
+        .gallery {
+          padding: 80px 20px 120px;
+        }
+
+        /* SINGLE PHOTOS */
+
+        .single,
+        .single.right {
+          width: 85%;
+
+          margin-left: 0;
+
+          margin-right: 0;
+
+          margin-bottom: 130px;
+        }
+
+        /* TWO PHOTOS */
+
+        .double {
+          grid-template-columns: 1fr 1fr;
+
+          gap: 10px;
+
+          margin-bottom: 130px;
+        }
+
+        /* REMOVE OFFSET ON SMALL SCREENS */
+
+        .double.offset .photo:nth-child(2) {
+          margin-top: 50px;
+        }
+
+        /* LARGE PHOTOS */
+
+        .large {
+          width: 100%;
+
+          margin-bottom: 150px;
+        }
+
+        /* ABOUT */
+
+        .about {
+          padding: 20px;
+
+          min-height: 80vh;
+        }
+
+        .about-inner {
+          grid-template-columns: 1fr;
+
+          gap: 60px;
+        }
+
+        .about-title {
+          font-size: 25vw;
+
+          letter-spacing: -3px;
+        }
+
+        .about-text {
+          font-size: 19px;
+        }
+
+        /* CONTACT */
+
+        .contact {
+          padding: 80px 20px 20px;
+        }
+
+        .contact-title {
+          font-size: 25vw;
+
+          letter-spacing: -3px;
+        }
+
+        .contact-info {
+          margin-top: 60px;
+
+          display: block;
+
+          line-height: 2;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ==================================================
+         HEADER
+    ================================================== -->
+
+    <header>
+      <nav class="nav">
+        <a href="#"> kat </a>
+      </nav>
+
+      <div class="hero">
+        <h1>my photography portfolio</h1>
+
+        <div class="hero-info">
+          created<br />
+          in a week
+        </div>
+      </div>
+    </header>
+
+    <!-- ==================================================
+         GALLERY
+    ================================================== -->
+
+    <main class="gallery">
+      <!-- ==================================================
+             SINGLE PHOTO — RIGHT
+        ================================================== -->
+      <h2>studio portraits</h2>
+      <figure class="single right">
+        <img src="img/armsonchar.jpg" alt="Portrait 04" />
+
+        <figcaption class="caption">
+          <span> 01 — Portrait </span>
+
+          <span> edited by me</span>
+        </figcaption>
+      </figure>
+
+      <!-- ==================================================
+             TWO PHOTOS WITH OFFSET
+        ================================================== -->
+
+      <div class="double offset">
+        <figure class="photo">
+          <img src="img/bird_møf.jpg" alt="Portrait 05" />
+
+          <figcaption class="caption">
+            <span> 02 </span>
+
+            <span>edited by me</span>
+          </figcaption>
+        </figure>
+
+        <figure class="photo">
+          <img src="img/bird1.jpg" alt="Portrait 06" />
+
+          <figcaption class="caption">
+            <span> 03 </span>
+
+            <span>edited by me</span>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="double offset">
+        <figure class="photo">
+          <img src="img/bird2.jpg" alt="Portrait 05" />
+
+          <figcaption class="caption">
+            <span> 04 </span>
+
+            <span> edited by me</span>
+          </figcaption>
+        </figure>
+
+        <figure class="photo">
+          <img src="img/bird3.jpg" alt="Portrait 06" />
+
+          <figcaption class="caption">
+            <span> 05 </span>
+
+            <span>edited by me</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- ==================================================
+             LARGE PHOTO
+        ================================================== -->
+
+      <figure class="large">
+        <img src="img/glademøffer.jpg" alt="Portrait 07" />
+
+        <figcaption class="caption">
+          <span> 06 </span>
+
+          <span> edited by me</span>
+        </figcaption>
+      </figure>
+
+      <!-- ==================================================
+             SINGLE PHOTO
+        ================================================== -->
+
+      <figure class="single">
+        <img src="img/pc1.jpg" alt="Portrait 01" />
+
+        <figcaption class="caption">
+          <span> 07 </span>
+
+          <span> edited by me </span>
+        </figcaption>
+      </figure>
+
+      <!-- ==================================================
+             TWO PHOTOS BESIDE EACH OTHER
+        ================================================== -->
+
+      <div class="double">
+        <figure class="photo">
+          <img src="img/pc2.jpg" alt="Portrait 02" />
+
+          <figcaption class="caption">
+            <span> 08 </span>
+
+            <span> edited by me </span>
+          </figcaption>
+        </figure>
+
+        <figure class="photo">
+          <img src="img/pc3.jpg" alt="Portrait 03" />
+
+          <figcaption class="caption">
+            <span> 09 </span>
+
+            <span> edited by me</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- ==================================================
+             TWO MORE PHOTOS
+        ================================================== -->
+
+      <div class="double">
+        <figure class="photo">
+          <img src="img/kiss.jpg" alt="Portrait 08" />
+
+          <figcaption class="caption">
+            <span> 10 </span>
+
+            <span> edited by me </span>
+          </figcaption>
+        </figure>
+
+        <figure class="photo">
+          <img src="img/lookatthecamera.jpg" alt="Portrait 09" />
+
+          <figcaption class="caption">
+            <span> 11 </span>
+
+            <span> edited by me</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <h2>the influencer event</h2>
+      <!-- ==================================================
+             TWO MORE PHOTOS
+        ================================================== -->
+
+      <div class="double">
+        <figure class="photo">
+          <img src="img/tmc/DSC01738.jpg" alt="Portrait 08" />
+
+          <figcaption class="caption">
+            <span> 01 </span>
+
+            <span> Portrait </span>
+          </figcaption>
+        </figure>
+
+        <figure class="photo">
+          <img src="img/tmc/DSC01764.jpg" alt="Portrait 09" />
+
+          <figcaption class="caption">
+            <span> 02 </span>
+
+            <span> Portrait </span>
+          </figcaption>
+        </figure>
+      </div>
+      <!-- ==================================================
+             TWO MORE PHOTOS
+        ================================================== -->
+
+      <div class="double">
+        <figure class="photo">
+          <img src="img/tmc/DSC01768.jpg" alt="Portrait 08" />
+
+          <figcaption class="caption">
+            <span> 03 </span>
+
+            <span>taken and edited by me</span>
+          </figcaption>
+        </figure>
+
+        <figure class="photo">
+          <img src="img/tmc/DSC01787.jpg" alt="Portrait 09" />
+
+          <figcaption class="caption">
+            <span> 04 </span>
+
+            <span>taken and edited by me</span>
+          </figcaption>
+        </figure>
+      </div>
+      <!-- ==================================================
+             TWO MORE PHOTOS
+        ================================================== -->
+
+      <div class="double">
+        <figure class="photo">
+          <img src="img/tmc/DSC01832.jpg" alt="Portrait 08" />
+
+          <figcaption class="caption">
+            <span> 05 </span>
+
+            <span>taken and edited by me</span>
+          </figcaption>
+        </figure>
+
+        <figure class="photo">
+          <img src="img/tmc/DSC01904.jpg" alt="Portrait 09" />
+
+          <figcaption class="caption">
+            <span> 06 </span>
+
+            <span>taken and edited by me</span>
+          </figcaption>
+        </figure>
+      </div>
+      <!-- ==================================================
+             TWO MORE PHOTOS
+        ================================================== -->
+
+      <div class="double">
+        <figure class="photo">
+          <img src="img/tmc/DSC02220.jpg" alt="Portrait 08" />
+
+          <figcaption class="caption">
+            <span> 07 </span>
+
+            <span>taken and edited by me</span>
+          </figcaption>
+        </figure>
+
+        <figure class="photo">
+          <img src="img/tmc/DSC02369.jpg" alt="Portrait 09" />
+
+          <figcaption class="caption">
+            <span> 08 </span>
+
+            <span>taken and edited by me</span>
+          </figcaption>
+        </figure>
+      </div>
+      <!-- ==================================================
+             TWO MORE PHOTOS
+        ================================================== -->
+
+      <div class="double">
+        <figure class="photo">
+          <img src="img/tmc/DSC02396.jpg" alt="Portrait 08" />
+
+          <figcaption class="caption">
+            <span> 09 </span>
+
+            <span>taken and edited by me</span>
+          </figcaption>
+        </figure>
+
+        <figure class="photo">
+          <img src="img/tmc/DSC02449.jpg" alt="Portrait 09" />
+
+          <figcaption class="caption">
+            <span> 10 </span>
+
+            <span>taken and edited by me</span>
+          </figcaption>
+        </figure>
+      </div>
+      <h2>phoebes birthday</h2>
+      <!-- ==================================================
+             TWO MORE PHOTOS
+        ================================================== -->
+
+      <div class="double">
+        <figure class="photo">
+          <img src="img/phoebe/PHOEBEBDAY-3.jpg" alt="Portrait 08" />
+
+          <figcaption class="caption">
+            <span> 01 </span>
+
+            <span>edited by me</span>
+          </figcaption>
+        </figure>
+
+        <figure class="photo">
+          <img src="img/phoebe/PHOEBEBDAY.jpg" alt="Portrait 09" />
+
+          <figcaption class="caption">
+            <span> 02 </span>
+
+            <span>edited by me</span>
+          </figcaption>
+        </figure>
+      </div>
+      <!-- ==================================================
+             LARGE PHOTO
+        ================================================== -->
+
+      <figure class="large">
+        <img src="img/phoebe/PHOEBEBDAY-8.jpg" alt="Portrait 07" />
+
+        <figcaption class="caption">
+          <span>03</span>
+
+          <span>taken and edited by me</span>
+        </figcaption>
+      </figure>
+    </main>
+  </body>
+</html>
